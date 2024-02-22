@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wiki/style.css' %}">
+    <script src="{% static 'wiki/layout.js' %}"></script>
     <meta charset="UTF-8">
     <title>Wiki Articles</title>
-    <style>
-        .article-list {
-            list-style-type: none; /* Removes default list styling */
-            padding: 0; /* Removes default padding */
-        }
-        .article-box {
-            border: 1px solid #ddd; /* Adds a border around each article box */
-            margin-bottom: 10px; /* Adds space between article boxes */
-            padding: 10px; /* Adds some padding inside each article box */
-            display: flex; /* Enables flexbox layout */
-            flex-direction: column; /* Stacks flex items vertically */
-        }
-    </style>
 </head>
 <body>
     {% if latest_article_list %}
@@ -24,13 +15,15 @@
                 <li class="article-box">
                     <a href="{% url 'wiki:detail' article.id %}">
                         {{ article.title }}
-                    </a> - 
+                    </a>
                     <em>Published on {{ article.date_published|date:"Y-m-d H:i" }}</em>
+                    <p>{{ article.blurb }}</p> <!-- Displaying the article's blurb -->
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         <p>No articles are available.</p>
     {% endif %}
+        
 </body>
 </html>
