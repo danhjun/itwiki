@@ -1,31 +1,98 @@
+body {
+    margin: 0; /* Eliminates default margin */
+    padding: 0; /* Eliminates default padding */
+    background-color: #28221D; /* Keeps your chosen background color */
+    color: #F4EAEA; /* Keeps your chosen text color */
+}
+
+.header {
+    background-image: url('path-to-your-image.jpg'); /* Adjust path as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 100%; /* Ensures the header stretches across the full width */
+    margin: 0; /* Eliminates default margin */
+    padding: 0; /* Eliminates default padding */
+}
+
+.content-container {
+    width: 100%; /* Ensure the container takes full width */
+    max-width: 1200px; /* Adjust this value based on your layout's maximum width */
+    margin: 0 auto; /* Center the container */
+    margin-top: 10px;
+    padding: 0 15px; /* Adjust if necessary to match the article boxes' alignment */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
 .article-list {
     list-style-type: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px; /* Maintain 5px spacing */
-    margin: 0 auto;
+    justify-content: flex-start; /* Keeps items aligned to the start */
+    gap: 5px;
+    margin: 0 auto; /* Center the list within the content-container */
+    max-width: calc(100% - 30px); /* Adjust the width to ensure it's centered */
+}
+
+.welcome-message {
+    text-align: left;
+    margin: 0 auto; /* Center the message */
+    max-width: calc(100% - 30px); /* Ensures alignment and centering */
+    padding-bottom: 20px; /* Space below the welcome message */
 }
 
 .article-box {
-    border: 1px solid #ddd;
-    padding: 10px;
-    width: 350px; /* Initially set width */
-    height: 365px; /* Initially set height */
+    border: 1px solid #42443F;
+    padding: 0;
+    width: 350px;
+    height: 365px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Optional: Changes the cursor to indicate the box is interactive */
 }
 
-/* Midway point - Maintain div box sizes, hide the third article */
+.article-box:hover img {
+    transform: scale(1.1); /* Zoom effect */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.article-box img {
+    width: 100%;
+    height: 182.5px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease; /* Ensure this is set for smooth reverse transition */
+}
+
+.article-info {
+    padding: 10px; /* Apply padding here to maintain spacing within the content area */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    overflow: hidden;
+}
+
+.article-link {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits color from parent elements */
+    display: flex; /* Ensures the link behaves like its child flex containers */
+    flex-direction: column; /* Maintains the original layout direction */
+    height: 100%; /* Ensures the link covers the entire height of the box */
+    width: 100%; /* Ensures the link covers the entire width of the box */
+}
+/* Adjustments for responsive design remain the same */
 @media (max-width: 1024px) {
     .article-list .article-box:nth-of-type(3) {
         display: none; /* Hide the third box */
     }
 }
 
-/* Smaller screens - Adjust for shorter heights and longer widths */
 @media (max-width: 768px) {
     .article-box {
         width: 100%; /* Longer width */

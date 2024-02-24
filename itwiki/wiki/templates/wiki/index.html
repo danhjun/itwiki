@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'wiki/style.css' %}">
-    <script src="{% static 'wiki/layout.js' %}"></script>
+    <script src="{% static 'wiki/movements.js' %}" defer></script>
     <meta charset="UTF-8">
     <title>Wiki Articles</title>
 </head>
 <body>
-    {% if latest_article_list %}
-        <ul class="article-list">
-            {% for article in latest_article_list %}
+    <!-- Header with Background Image -->
+    <div class="header" style="background-image: url('{% static 'wiki/images/wideimage.jpg' %}'); background-size: cover; background-position: center; height: 200px;">
+    </div>
+    
+    <!-- Content Container Moved Outside the Header -->
+    <div class="content-container">
+        <div class="welcome-message">
+            <h1>Welcome to the IT Wiki!</h1>
+            <p>This is an IT handbook, written and maintained by Dan Jun.</p>
+        </div>
+
+        {% if latest_article_list %}
+            <ul class="article-list">
+                {% for article in latest_article_list %}
                 <li class="article-box">
-                    <a href="{% url 'wiki:detail' article.id %}">
-                        {{ article.title }}
+                    <a href="{% url 'wiki:detail' article.id %}" class="article-link">
+                        <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                        <div class="article-info">
+                            <h3>{{ article.title }}</h3>
+                            <em>Published on {{ article.date_published|date:"Y-m-d H:i" }}</em>
+                            <p>{{ article.blurb }}</p>
+                        </div>
                     </a>
-                    <em>Published on {{ article.date_published|date:"Y-m-d H:i" }}</em>
-                    <p>{{ article.blurb }}</p> <!-- Displaying the article's blurb -->
                 </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No articles are available.</p>
-    {% endif %}
-        
+                {% endfor %}   
+            </ul>
+        {% else %}
+            <p>No articles are available.</p>
+        {% endif %}
+    </div>   
 </body>
 </html>

@@ -9,7 +9,7 @@ class Tag(models.Model):
     
 class Topic(models.Model):
     name = models.CharField(max_length=255)
-
+    image = models.ImageField(upload_to="itwiki/wiki/static/wiki/images", default="automation_programmability.png")
     def __str__(self):
         return self.name
     
@@ -21,7 +21,7 @@ class Article(models.Model):
     body = models.TextField(default='')
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    
+    image = models.ImageField(upload_to="itwiki/wiki/static/wiki/images", default="automation_programmability.png")
 
     def __str__(self):
         return self.title
