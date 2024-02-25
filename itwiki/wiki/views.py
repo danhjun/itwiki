@@ -13,7 +13,14 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five published questions."""
-        return Article.objects.order_by("-date_published")[:3]
+        return Article.objects.order_by("-date_published")[:4]
+    
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the topics
+        context['topic_list'] = Topic.objects.all()
+        return context
 
 class DetailView(generic.DetailView):
     model = Article
