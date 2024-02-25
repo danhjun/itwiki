@@ -6,6 +6,11 @@ body {
     font-family: 'Source Serif 4', serif;
 }
 
+.blurb {
+    font-size: 0.85rem; /* Example of a smaller font size; adjust as needed */
+    margin-top: 0px; /* Reduce or remove the top margin */
+}
+
 /* Article Box - adding bottom margin */
 .article-box {
     border: 1px solid #736559;
@@ -23,7 +28,9 @@ body {
 
 .article-box h3 {
     margin-top: 0px; /* Removes space above the title */
-    /* Keep other styles as is */
+    margin-bottom: 10px; /* Reduced bottom margin */
+    font-weight: 450; /* Match the weight of topic names */
+    font-size: 1.3rem; /* Match the size of topic names */
 }
 
 .article-box:hover img {
@@ -40,7 +47,7 @@ body {
 }
 
 .article-info {
-    padding: 20px; /* Increase padding for more space around the text */
+    padding: 22px; /* Increase padding for more space around the text */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -71,7 +78,8 @@ body {
 
 /* Reduce font weight for topic names */
 .topic-box h3 {
-    font-weight: 400; /* Adjust the value to your preference */
+    font-weight: 350; /* Adjust the value to your preference */
+    font-size: 1.3rem;
 }
 
 /* Ensure the container takes full width and is centered */
@@ -85,9 +93,9 @@ body {
 }
 
 .publication-info {
-    margin-bottom: 20px; /* Removes space below the publication date */
-    color: #7B7774;
-    font-size: 0.88rem;
+    margin-bottom: 0px; /* Removes space below the publication date */
+    color: #918D8C;
+    font-size: 0.87rem;
 }
 
 /* Adjusted Topic Box for better alignment */
