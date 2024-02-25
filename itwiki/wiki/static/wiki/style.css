@@ -8,7 +8,7 @@ body {
 
 /* Article Box - adding bottom margin */
 .article-box {
-    border: 1px solid #42443F;
+    border: 1px solid #736559;
     padding: 0;
     width: calc((100% - 20px) / 4);
     min-height: 365px; /* Changed from height to min-height */
@@ -92,7 +92,7 @@ body {
 
 /* Adjusted Topic Box for better alignment */
 .topic-box {
-    border: 1px solid #42443F;
+    border: 1px solid #736559;
     padding: 0;
     width: calc((350px - 5px) / 2); /* This calculation might need to be adjusted for responsiveness */
     min-height: auto; /* Allows the box to grow with the content, consider setting a specific min-height */
@@ -187,7 +187,7 @@ body {
 
 @media (max-width: 768px) {
     .topic-box {
-        width: calc(100% / 2 - 10px); /* Adjusts width for smaller screens, ensure gap is accounted for */
+        width: calc(100% / 2 - 6px); /* Adjusts width for smaller screens, ensure gap is accounted for */
         padding: 10px; /* Adjust padding to allow more space for content */
     }
     .topic-info {
