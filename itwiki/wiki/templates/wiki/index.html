@@ -10,14 +10,25 @@
 </head>
 <body>
     <!-- Header with Background Image -->
-    <div class="header" style="background-image: url('{% static 'wiki/images/wideimage.jpg' %}'); background-size: cover; background-position: center; height: 200px;">
-    </div>
-    
-    <!-- Content Container Moved Outside the Header -->
+    <div class="header" style="background-image: url('{% static 'wiki/images/wideimage.jpg' %}'); background-size: cover; background-position: center; height: 200px;"></div>
     <div class="content-container">
-        <div class="welcome-message">
-            <h1>Welcome to the IT Wiki!</h1>
-            <p>This is an IT handbook, written and maintained by Dan Jun.</p>
+
+        <!-- Flex Container for Welcome Message and Navigation Bar -->
+        <div class="header-container">
+            <div class="welcome-message">
+                <h1>Welcome to the IT Wiki!</h1>
+                <p>This is an IT handbook, written and maintained by Dan Jun.</p>
+            </div>
+    
+            <!-- Navigation Bar -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{% url 'wiki:all_articles' %}">All Articles</a></li>
+                    <li><a href="{% url 'wiki:all_topics' %}">All Topics</a></li>
+                    <li><a href="https://github.com/danhjun"><img src="{% static 'wiki/images/github-mark-white.png' %}" alt="GitHub" style="height: 20px; width: auto;"></a></li>
+
+                </ul>
+            </nav>
         </div>
 
         {% if latest_article_list %}

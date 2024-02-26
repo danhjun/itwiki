@@ -7,7 +7,7 @@ body {
 }
 
 .blurb {
-    font-size: 0.85rem; /* Example of a smaller font size; adjust as needed */
+    font-size: 0.95rem; /* Example of a smaller font size; adjust as needed */
     margin-top: 0px; /* Reduce or remove the top margin */
 }
 
@@ -83,14 +83,51 @@ body {
     text-align: center; /* Center-aligns the text */
 }
 
-/* Ensure the container takes full width and is centered */
+/* Ensure .content-container aligns with the new header setup */
 .content-container {
     width: 100%;
-    max-width: 1200px; /* Adjust this value based on your layout's maximum width */
-    margin: 0 auto; /* Center the container */
-    margin-top: 10px;
-    padding: 0 15px; /* Adjust if necessary to match the article boxes' alignment */
-    box-sizing: border-box; /* Include padding in the width calculation */
+    max-width: 1200px; /* Ensure this matches the header container for alignment */
+    margin: 0 auto;
+    padding: 0 15px; /* This padding is crucial for alignment with the header */
+    box-sizing: border-box;
+}
+
+/* New Header Container */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 15px; /* This should match your content-container padding for alignment */
+    max-width: 1200px; /* This should match your content-container's max-width */
+}
+
+/* Navigation (includes GitHub logo) styling */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    /* Add any specific styling for your nav-bar here (e.g., gap for spacing elements within) */
+}
+
+.navbar ul {
+    display: flex;
+    gap: 20px; /* Adjust based on your preference */
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.navbar a {
+    color: #F4EAEA; /* Your text color */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    height: 20px; /* Adjust based on your logo's size */
+    width: auto;
+    margin-right: 10px; /* If you want some space between the logo and the text */
 }
 
 .publication-info {
@@ -151,11 +188,10 @@ body {
     max-width: calc(100% - 30px); /* Adjust based on your layout */
 }
 
+/* Adjust the .welcome-message if necessary to ensure proper alignment */
 .welcome-message {
     text-align: left;
-    margin: 0 auto; /* Center the message */
-    max-width: calc(100% - 30px); /* Ensures alignment and centering */
-    padding-bottom: 20px; /* Space below the welcome message */
+    padding-bottom: 20px; /* Adjust as needed */
 }
 
 /* Ensure two articles are shown side by side up to the 1024px breakpoint */
@@ -170,6 +206,21 @@ body {
     .article-info {
         padding: 15px; /* Reduced padding on smaller screens */
         font-size: 0.8rem; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-flex-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar {
+        margin-top: 20px; /* Adds some space between the welcome message and the navbar on smaller screens */
+    }
+
+    .navbar ul {
+        justify-content: center;
     }
 }
 
