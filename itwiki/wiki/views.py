@@ -3,7 +3,11 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 from django.views.generic import ListView
-from .models import Topic, Article
+from .models import Topic, Article, SubTopic
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
 class IndexView(generic.ListView):
     template_name = "wiki/index.html"
     
@@ -25,6 +29,7 @@ class ArticleDetailView(generic.DetailView):
     template_name = "wiki/detail_article.html"
 
 class AllArticlesView(generic.ListView):
+    model = Article
     template_name = 'wiki/all_articles.html'  # You'll need to create this template
     context_object_name = 'all_articles_list'
     paginate_by = 10  # Optional: if you want to paginate the articles
@@ -41,3 +46,34 @@ class AllTopicsView(ListView):
 class TopicDetailView(generic.DetailView):
     model = Topic
     template_name = "wiki/detail_topic.html"  # You'll create this template in the next step
+
+@csrf_exempt
+def update_subtopic_status(request, subtopic_id):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            status = data.get('status')
+
+            # Explicitly convert status to boolean if it's not already
+            if isinstance(status, bool):
+                new_status = status
+            elif status in ['true', 'True', True]:
+                new_status = True
+            elif status in ['false', 'False', False]:
+                new_status = False
+            else:
+                return JsonResponse({"error": "Invalid 'status' value"}, status=400)
+
+            subtopic = SubTopic.objects.get(id=subtopic_id)
+            subtopic.status = new_status
+            subtopic.save()
+            return JsonResponse({"success": True, "status": subtopic.status})
+        except SubTopic.DoesNotExist:
+            return JsonResponse({"error": "SubTopic not found"}, status=404)
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON"}, status=400)
+        except KeyError:
+            return JsonResponse({"error": "Missing 'status' field"}, status=400)
+    else:
+        return JsonResponse({"error": "Invalid request"}, status=400)
+

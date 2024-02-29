@@ -3,25 +3,25 @@
 {% load static %}
 
 {% block welcome_message %}
-    <h1>Custom Welcome Title for {{ object.name }}</h1>
+    <h1>Subtopics for {{ object.name }}</h1>
     <p>Custom text specific to the {{ object.name }}</p>
 {% endblock %}
 
 {% block content %}
 <script src="{% static 'wiki/subtopic_handler.js' %}"></script>
-<hr>
-<h2>Subtopics:</h2>
 <ul class="subtopic-list">
     {% for subtopic in object.subtopic_set.all %}
-        <li class="subtopic-item" id="subtopic-{{ forloop.counter }}">
-            <input type="checkbox" onclick="toggleSubtopicStatus({{ forloop.counter }}, {{ subtopic.id }})"> 
-            <span>{{ subtopic.code }} {{ subtopic.name }}:</span> {{ subtopic.description }}
+        <li class="subtopic-item" id="subtopic-{{ subtopic.id }}">
+            <input type="checkbox" onclick="toggleSubtopicStatus({{ subtopic.id }}, this.checked)" {% if subtopic.status %} checked {% endif %}> 
+            <span class="{{ subtopic.status|yesno:'text-success,' }}">
+                <span class="subtopic-code-name">{{ subtopic.code }} {{ subtopic.name }}:</span> 
+                <span class="subtopic-description">{{ subtopic.description }}</span>
+            </span>
         </li>
     {% empty %}
         <p>No subtopics available.</p>
     {% endfor %}
 </ul>
-
-<script src="{% static 'js/subtopic_handler.js' %}"></script>
 {% endblock %}
+
 

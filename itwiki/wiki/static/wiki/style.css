@@ -137,10 +137,23 @@ body {
     font-size: 0.87rem;
 }
 
+/* Add this to your CSS file or within a <style> tag in base.html */
+.subtopic-code-name {
+    font-size: 1.1rem; /* Adjust the size as needed */
+    font-weight: bold; /* Optional, makes the text bold */
+}
+
+.subtopic-description {
+    font-size: 0.99rem; /* This should match your default font size or be adjusted as desired */
+}
+
 .subtopic-list {
     list-style-type: none;
 }
 
+.text-success {
+    color: green;
+}
 /* Adjusted Topic Box for better alignment */
 .topic-box {
     border: 1px solid #736559;
