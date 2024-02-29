@@ -1,0 +1,28 @@
+{% extends 'wiki/base.html' %}
+
+{% block welcome_message %}
+    <h1>This is the All Articles Page</h1>
+    <p>Custom text specific to the main articles page.</p>
+{% endblock %}
+
+{% block content %}
+{% if all_articles_list %}
+<ul class="article-list">
+    {% for article in all_articles_list %}
+    <li class="article-box">
+        <a href="{% url 'wiki:detail' article.id %}" class="article-link">
+            <img src="{{ article.image.url }}" alt="{{ article.title }}">
+            <div class="article-info">
+                <em class="publication-info">Published on {{ article.date_published|date:"Y-m-d" }} • Tag: {{ article.tag }}</em>
+                <h3>{{ article.title }}</h3>
+                <p class="blurb">{{ article.blurb }}</p>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No articles are available.</p>
+{% endif %}
+
+{% endblock %}

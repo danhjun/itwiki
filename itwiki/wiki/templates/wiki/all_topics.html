@@ -1,0 +1,23 @@
+{% extends 'wiki/base.html' %}
+
+{% block welcome_message %}
+    <h1>This is the All Topics Page</h1>
+    <p>Custom text specific to the main topic page.</p>
+{% endblock %}
+
+{% block content %}
+{% if all_topic_list %}
+<ul class="topic-list">
+    {% for topic in all_topic_list %}
+    <li class="topic-box">
+        <img src="{{ topic.image.url }}" alt="{{ topic.name }}">
+        <div class="topic-info">
+            <h3>{{ topic.name }}</h3>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No topics are available.</p>
+{% endif %}
+{% endblock %}

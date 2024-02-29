@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wiki/style.css' %}">
+    <script src="{% static 'wiki/movements.js' %}" defer></script>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <title>Wiki Articles</title>
+</head>
+<body>
+    <!-- Header with Background Image -->
+    <div class="header" style="background-image: url('{% static 'wiki/images/wideimage.jpg' %}'); background-size: cover; background-position: center; height: 200px;"></div>
+    
+    <div class="content-container">
+        <!-- Adjusted for flexbox layout -->
+        
+        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center;">
+            
+            <div class="welcome-message">
+                {% block welcome_message %}
+                <h1>Write your title here!</h1>
+                <p>Write your message here!</p>
+                {% endblock %}
+            </div>
+            
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{% url 'wiki:index' %}">Home</a></li>
+                    <li><a href="{% url 'wiki:all_articles' %}">All Articles</a></li>
+                    <li><a href="{% url 'wiki:all_topics' %}">All Topics</a></li>
+                    <li><a href="https://github.com/danhjun"><img src="{% static 'wiki/images/github-mark-white.png' %}" alt="GitHub" style="height: 20px; width: auto;"></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
+
+    

@@ -19,12 +19,12 @@ class IndexView(generic.ListView):
         # Add in a QuerySet of all the topics
         context['topic_list'] = Topic.objects.all()
         return context
-class DetailView(generic.DetailView):
+    
+class ArticleDetailView(generic.DetailView):
     model = Article
-    template_name = "wiki/detail.html"
+    template_name = "wiki/detail_article.html"
 
 class AllArticlesView(generic.ListView):
-    model = Article
     template_name = 'wiki/all_articles.html'  # You'll need to create this template
     context_object_name = 'all_articles_list'
     paginate_by = 10  # Optional: if you want to paginate the articles
@@ -32,7 +32,12 @@ class AllArticlesView(generic.ListView):
     def get_queryset(self):
         """Return all articles ordered by publication date."""
         return Article.objects.order_by("-date_published")
+    
 class AllTopicsView(ListView):
     model = Topic
     template_name = "wiki/all_topics.html"  # Specify your template here
     context_object_name = "all_topic_list"   # This is the context variable to be used in the template
+
+class TopicDetailView(generic.DetailView):
+    model = Topic
+    template_name = "wiki/detail_topic.html"  # You'll create this template in the next step

@@ -35,3 +35,12 @@ class Comment(models.Model):
     def __str__(self):
         return self.statement[:50]
 
+class SubTopic(models.Model):
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    code = models.CharField(max_length=10)
+    status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
