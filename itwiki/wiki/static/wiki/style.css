@@ -1,7 +1,7 @@
 body {
     margin: 0; /* Eliminates default margin */
     padding: 0; /* Eliminates default padding */
-    background-color: #28221D; /* Keeps your chosen background color */
+    background-color: #201B17; /* Keeps your chosen background color */
     color: #F4EAEA; /* Keeps your chosen text color */
     font-family: 'Source Serif 4', serif;
 }
@@ -126,7 +126,7 @@ body {
 }
 
 .navbar img {
-    height: 20px; /* Adjust based on your logo's size */
+    height: 30px; /* Adjust based on your logo's size */
     width: auto;
     margin-right: 10px; /* If you want some space between the logo and the text */
 }
@@ -138,13 +138,22 @@ body {
 }
 
 /* Add this to your CSS file or within a <style> tag in base.html */
-.subtopic-code-name {
+.subtopic-code {
     font-size: 1.1rem; /* Adjust the size as needed */
-    font-weight: bold; /* Optional, makes the text bold */
+    font-weight: normal; /* Optional, makes the text bold */
+    color: #B79D7E;
+}
+
+.subtopic-name {
+    font-size: 1.1rem; /* Adjust the size as needed */
+    color: #B79D7E;
+    font-weight: bold; /* Optional, makes the text semi-bold */
+
 }
 
 .subtopic-description {
     font-size: 0.99rem; /* This should match your default font size or be adjusted as desired */
+    color: #B79D7E;
 }
 
 .subtopic-list {
@@ -152,7 +161,7 @@ body {
 }
 
 .text-success {
-    color: green;
+    color: #4f9153;
 }
 /* Adjusted Topic Box for better alignment */
 .topic-box {
@@ -213,6 +222,28 @@ body {
     margin: 0 auto;
     padding: 0;
     max-width: calc(100% - 30px); /* Adjust based on your layout */
+}
+
+.view-more-wrapper {
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    width: 100%; /* Ensures it spans the full width of its container */
+    margin-top: 20px; /* Optional: Adds some space above the link */
+}
+
+.view-more-link {
+    /* Additional styles for the link */
+    display: flex; /* Align items in a row */
+    align-items: center; /* Center align the items vertically */
+    justify-content: space-between; /* Optional: Increases the space between text and image */
+    text-decoration: none; /* Example: Removes underline */
+    color: inherit; /* Inherits the text color */
+}
+
+.mediumicon {
+    height: 2.5em; /* Sets the image height equal to the current font size */
+    width: auto; /* Maintains aspect ratio */
+    margin-left: 5px; /* Adds some space between the text and the image */
 }
 
 /* Adjust the .welcome-message if necessary to ensure proper alignment */

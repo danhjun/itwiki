@@ -26,14 +26,26 @@ function toggleSubtopicStatus(subtopicId, isChecked) {
     })
     .then(response => response.json())
     .then(data => {
-        // Select the parent <li> element of the checkbox to update its class
-        const listItem = document.querySelector(`#subtopic-${subtopicId}`);
-        const span = listItem.querySelector('span'); // Assuming the span is directly inside the <li>
-        if (data.status) {
-            span.classList.add('text-success');
-        } else {
-            span.classList.remove('text-success');
+        // Target elements within the list item
+        const subtopicItem = document.querySelector(`#subtopic-${subtopicId}`);
+        const codeElement = subtopicItem.querySelector('.subtopic-code');
+        const nameElement = subtopicItem.querySelector('.subtopic-name');
+        const descriptionElement = subtopicItem.querySelector('.subtopic-description');
+
+        // Function to add or remove 'text-success' class based on status
+        function toggleClass(element, add) {
+            if (add) {
+                element.classList.add('text-success');
+            } else {
+                element.classList.remove('text-success');
+            }
         }
+
+        // Apply the color change based on the checkbox status
+        const shouldAddClass = data.status; // This assumes `data.status` is a boolean reflecting the checkbox state
+        toggleClass(codeElement, shouldAddClass);
+        toggleClass(nameElement, shouldAddClass);
+        toggleClass(descriptionElement, shouldAddClass);
     })
     .catch((error) => {
         console.error('Error:', error);

@@ -10,7 +10,7 @@
 <ul class="article-list">
     {% for article in latest_article_list %}
     <li class="article-box">
-        <a href="{% url 'wiki:article_detail' article.id %}" class="article-link">
+        <a href="{{article.link}}" class="article-link">
         <img src="{{ article.image.url }}" alt="{{ article.title }}">
             <div class="article-info">
                 <em class="publication-info">Published on {{ article.date_published|date:"Y-m-d" }} • Tag: {{ article.tag }}</em>

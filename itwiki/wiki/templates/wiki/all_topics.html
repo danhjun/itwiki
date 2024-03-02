@@ -10,10 +10,12 @@
 <ul class="topic-list">
     {% for topic in all_topic_list %}
     <li class="topic-box">
+        <a href="{% url 'wiki:topic_detail' topic.id %}" class="topic-link">
         <img src="{{ topic.image.url }}" alt="{{ topic.name }}">
         <div class="topic-info">
             <h3>{{ topic.name }}</h3>
         </div>
+        </a>
     </li>
     {% endfor %}
 </ul>

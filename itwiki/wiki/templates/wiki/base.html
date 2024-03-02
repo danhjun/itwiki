@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Header with Background Image -->
-    <div class="header" style="background-image: url('{% static 'wiki/images/wideimage.jpg' %}'); background-size: cover; background-position: center; height: 200px;"></div>
+    <div class="header" style="background-image: url('{% static 'wiki/images/hardwarewide.jpg' %}'); background-size: cover; background-position: center; height: 200px;"></div>
     
     <div class="content-container">
         <!-- Adjusted for flexbox layout -->
@@ -29,7 +29,8 @@
                     <li><a href="{% url 'wiki:index' %}">Home</a></li>
                     <li><a href="{% url 'wiki:all_articles' %}">All Articles</a></li>
                     <li><a href="{% url 'wiki:all_topics' %}">All Topics</a></li>
-                    <li><a href="https://github.com/danhjun"><img src="{% static 'wiki/images/github-mark-white.png' %}" alt="GitHub" style="height: 20px; width: auto;"></a></li>
+                    <li><a href="https://github.com/danhjun"><img src="{% static 'wiki/images/github-mark-white.png' %}" alt="GitHub"></a></li>
+                    <li><a href="https://medium.com/@danieljun3"><img src="{% static 'wiki/images/mediumicon.png' %}" alt="Medium"></a></li>
                 </ul>
             </nav>
         </div>
