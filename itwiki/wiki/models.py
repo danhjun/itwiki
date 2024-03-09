@@ -25,15 +25,6 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
-    
-
-class Comment(models.Model):
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True)
-    statement = models.TextField()
-    date_published = models.DateTimeField()
-
-    def __str__(self):
-        return self.statement[:50]
 
 class SubTopic(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
