@@ -12,7 +12,7 @@ class ViewTest(TestCase):
         # Create a Topic instance with a default image, change the path as per your requirements
         cls.topic = Topic.objects.create(
             name='Test Topic',
-            image='itwiki/wiki/static/wiki/images/default.png'  # Use a valid path or a default set in your model
+            image='itwiki/wiki/static/wiki/images/automation_programmability.jpg'  # Use a valid path or a default set in your model
         )
 
         # Create an Article instance with all required fields including a timezone-aware datetime
@@ -22,7 +22,7 @@ class ViewTest(TestCase):
             date_published=timezone.now(),
             tag=cls.tag,
             topic=cls.topic,
-            image='itwiki/wiki/static/wiki/images/article_default.png',  # Adjust according to actual usage or use the default
+            image='itwiki/wiki/static/wiki/images/automation_programmability.jpg',  # Adjust according to actual usage or use the default
             link='https://www.example.com'
         )
 
