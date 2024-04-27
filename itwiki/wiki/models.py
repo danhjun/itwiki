@@ -9,6 +9,7 @@ class Tag(models.Model):
     
 class Topic(models.Model):
     name = models.CharField(max_length=255)
+    # itwiki/itwiki/staticfiles/wiki/images
     image = models.ImageField(upload_to="itwiki/wiki/static/wiki/images", default="automation_programmability.png")
     def __str__(self):
         return self.name
