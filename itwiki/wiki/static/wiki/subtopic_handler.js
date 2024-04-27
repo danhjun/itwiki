@@ -1,27 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.subtopic-item input[type="checkbox"]').forEach(function(checkbox) {
-        const isChecked = checkbox.checked;
-        const subtopicItem = checkbox.closest('.subtopic-item');
-        const codeElement = subtopicItem.querySelector('.subtopic-code');
-        const nameElement = subtopicItem.querySelector('.subtopic-name');
-        const descriptionElement = subtopicItem.querySelector('.subtopic-description');
-
-        // Function to add or remove 'text-success' class based on status
-        function toggleClass(element, add) {
-            if (add) {
-                element.classList.add('text-success');
-            } else {
-                element.classList.remove('text-success');
-            }
-        }
-
-        // Apply the color change based on the checkbox status
-        toggleClass(codeElement, isChecked);
-        toggleClass(nameElement, isChecked);
-        toggleClass(descriptionElement, isChecked);
-    });
-});
-
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
