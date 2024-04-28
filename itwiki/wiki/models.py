@@ -10,7 +10,7 @@ class Tag(models.Model):
 class Topic(models.Model):
     name = models.CharField(max_length=255)
     # itwiki/itwiki/staticfiles/wiki/images
-    image = models.ImageField(upload_to="itwiki/wiki/static/wiki/images", default="automation_programmability.png")
+    image = models.ImageField(upload_to="wiki/images", default="automation_programmability.png")
     def __str__(self):
         return self.name
     
@@ -21,7 +21,7 @@ class Article(models.Model):
     date_published = models.DateTimeField()
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="itwiki/wiki/static/wiki/images", default="automation_programmability.png")
+    image = models.ImageField(upload_to="wiki/images", default="automation_programmability.png")
     link = models.URLField(max_length=200, default="https://www.cisco.com")
 
     def __str__(self):
