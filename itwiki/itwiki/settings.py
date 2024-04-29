@@ -42,7 +42,7 @@ SECRET_KEY = get_env_variable("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '3.134.109.119']
+ALLOWED_HOSTS = ['127.0.0.1', '3.14.145.147', 'itwiki.us', 'www.itwiki.us']
 
 # Application definition
 
