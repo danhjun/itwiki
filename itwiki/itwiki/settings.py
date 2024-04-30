@@ -37,10 +37,10 @@ def get_env_variable(var_name):
         raise ImproperlyConfigured(error_msg)
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env_variable("SECRET_KEY")
+SECRET_KEY = 'django-insecure-+%_4rihemmk=qz39lnac0!b4-pp@#=a6pjh9t221ecu)xvca)y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'itwiki.me', 'www.itwiki.me']
 
