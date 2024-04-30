@@ -40,7 +40,7 @@ function getCookie(name) {
 
 function toggleSubtopicStatus(subtopicId, isChecked) {
     const csrftoken = getCookie('csrftoken');
-    fetch(`/wiki/subtopics/${subtopicId}/update_status/`, {
+    fetch(`/home/subtopics/${subtopicId}/update_status/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
